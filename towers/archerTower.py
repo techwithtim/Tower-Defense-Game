@@ -4,10 +4,8 @@ import os
 import math
 from menu.menu import Menu
 
-
 menu_bg = pygame.transform.scale(pygame.image.load(os.path.join("game_assets", "menu.png")).convert_alpha(), (120, 70))
 upgrade_btn = pygame.transform.scale(pygame.image.load(os.path.join("game_assets", "upgrade.png")).convert_alpha(), (50, 50))
-
 
 tower_imgs1 = []
 archer_imgs1 = []
@@ -21,7 +19,6 @@ for x in range(7,10):
 for x in range(37,43):
     archer_imgs1.append(
         pygame.image.load(os.path.join("game_assets/archer_towers/archer_top", str(x) + ".png")).convert_alpha())
-
 
 class ArcherTowerLong(Tower):
     def __init__(self, x,y):
@@ -38,7 +35,6 @@ class ArcherTowerLong(Tower):
         self.width = self.height = 90
         self.moving = False
         self.name = "archer"
-
         self.menu = Menu(self, self.x, self.y, menu_bg, [2000, 5000,"MAX"])
         self.menu.add_btn(upgrade_btn, "Upgrade")
 
@@ -117,8 +113,7 @@ class ArcherTowerLong(Tower):
                     self.archer_imgs[x] = pygame.transform.flip(img, True, False)
 
         return money
-
-
+    
 tower_imgs = []
 archer_imgs = []
 # load archer tower images
@@ -126,12 +121,11 @@ for x in range(10,13):
     tower_imgs.append(pygame.transform.scale(
         pygame.image.load(os.path.join("game_assets/archer_towers/archer_2", str(x) + ".png")),
         (90, 90)))
-
+    
 # load archer images
 for x in range(43,49):
     archer_imgs.append(
         pygame.image.load(os.path.join("game_assets/archer_towers/archer_top_2", str(x) + ".png")))
-
 
 class ArcherTowerShort(ArcherTowerLong):
     def __init__(self, x,y):
@@ -145,10 +139,6 @@ class ArcherTowerShort(ArcherTowerLong):
         self.left = True
         self.damage = 2
         self.original_damage = self.damage
-
         self.menu = Menu(self, self.x, self.y, menu_bg, [2500, 5500, "MAX"])
         self.menu.add_btn(upgrade_btn, "Upgrade")
         self.name = "archer2"
-
-
-
